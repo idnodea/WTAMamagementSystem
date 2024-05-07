@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.Table;
 
+//개설강의
 @Entity
 @Table(name = "lesson")
 @Data
