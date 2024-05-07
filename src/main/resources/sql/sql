@@ -1,0 +1,411 @@
+CREATE TABLE `Syllabus` (
+	`id_syllabus`	VARCHAR(255)	NOT NULL	COMMENT 'FK',
+	`course_overview`	VARCHAR(255)	NOT NULL,
+	`book`	VARCHAR(255)	NULL,
+	`teaching`	VARCHAR(255)	NULL,
+	`evaluation`	VARCHAR(255)	NULL,
+	`remarks`	VARCHAR(255)	NULL,
+	`id_prof`	VARCHAR(255)	NOT NULL
+);
+
+CREATE TABLE `completion` (
+	`id_completion`	INT	NOT NULL,
+	`id_student`	INT	NOT NULL	COMMENT 'FK',
+	`course`	VARCHAR(50)	NOT NULL	COMMENT 'FK',
+	`score`	INT	NULL	COMMENT 'FK',
+	`completetion_date`	DATE	NULL
+);
+
+CREATE TABLE `lesson` (
+	`id_lesson`	VARCHAR(20)	NOT NULL,
+	`course_name`	VARCHAR(20)	NOT NULL,
+	`assignment`	VARCHAR(20)	NOT NULL,
+	`credit`	INT	NOT NULL,
+	`lesson_type`	VARCHAR(20)	NOT NULL,
+	`id_schedule`	VARCHAR(20)	NOT NULL,
+	`id_cors`	int	NOT NULL,
+	`id_room`	VARCHAR(20)	NOT NULL,
+	`id_prof`	VARCHAR(255)	NOT NULL,
+	`capacity`	VARCHAR(255)	NOT NULL,
+	`id_syllabus`	VARCHAR(255)	NOT NULL	COMMENT 'FK'
+);
+
+CREATE TABLE `students` (
+	`id_student`	VARCHAR(20)	NOT NULL,
+	`name`	VARCHAR(10)	NULL,
+	`birth`	CHAR(14)	NULL,
+	`tel`	VARCHAR(20)	NULL,
+	`address`	VARCHAR(100)	NULL,
+	`id_user`	VARCHAR(255)	NOT NULL,
+	`gender`	VARCHAR(255)	NULL,
+	`id_user2`	VARCHAR(255)	NOT NULL
+);
+
+CREATE TABLE `Class Request` (
+	`id_class_request`	VARCHAR(255)	NOT NULL,
+	`class_info`	VARCHAR(255)	NOT NULL	COMMENT 'FK',
+	`class_date`	VARCHAR(255)	NOT NULL,
+	`make_up_date`	VARCHAR(255)	NOT NULL,
+	`remarks`	VARCHAR(255)	NULL,
+	`app_date`	VARCHAR(255)	NULL,
+	`proc_date`	VARCHAR(255)	NULL,
+	`id_prof`	VARCHAR(255)	NULL	COMMENT 'FK'
+);
+
+CREATE TABLE `subject` (
+	`id_subject`	VARCHAR(20)	NOT NULL,
+	`subject_name`	VARCHAR(20)	NOT NULL,
+	`subject_type`	VARCHAR(20)	NOT NULL,
+	`subject_code`	VARCHAR(20)	NOT NULL
+);
+
+CREATE TABLE `code` (
+	`id_code`	VARCHAR(10)	NOT NULL,
+	`id_code_type`	VARCHAR(10)	NOT NULL,
+	`code_name`	VARCHAR(20)	NULL
+);
+
+CREATE TABLE `code_type` (
+	`id_code_type`	VARCHAR(10)	NOT NULL,
+	`code_type_name`	VARCHAR(20)	NULL
+);
+
+CREATE TABLE `subject_price` (
+	`id_univercity_ registerprice`	INT	NOT NULL,
+	`college_name`	VARCHAR(10)	NOT NULL,
+	`subject_price`	Long	NOT NULL,
+	`id_course`	VARCHAR(10)	NOT NULL
+);
+
+CREATE TABLE `students_account` (
+	`id_studentAccount`	VARCHAR(20)	NOT NULL,
+	`student_holder`	VARCHAR(10)	NOT NULL,
+	`id_student`	VARCHAR(20)	NOT NULL,
+	`student_bank`	VARCHAR(20)	NOT NULL,
+	`student_account`	VARCHAR(20)	NOT NULL
+);
+
+CREATE TABLE `Professor` (
+	`id_prof`	VARCHAR(255)	NOT NULL,
+	`Field`	VARCHAR(255)	NOT NULL,
+	`Field2`	VARCHAR(255)	NOT NULL,
+	`Field5`	VARCHAR(20)	NOT NULL,
+	`Field3`	VARCHAR(255)	NOT NULL,
+	`Field4`	VARCHAR(255)	NOT NULL,
+	`id_user`	VARCHAR(255)	NOT NULL
+);
+
+CREATE TABLE `users` (
+	`id_user`	VARCHAR(255)	NOT NULL,
+	`name`	VARCHAR(50	NOT NULL,
+	`birth`	DATE	NULL,
+	`tel`	VARCHAR(20	NULL,
+	`id_users`	VARCHAR(20	NOT NULL,
+	`password`	VARCHAR(20	NOT NULL,
+	`email`	VARCHAR(50	NULL,
+	`role`	VARCHAR(255)	NULL
+);
+
+CREATE TABLE `lmt_cors_mst` (
+	`id_cors`	int	NOT NULL,
+	`cors_nm`	VARCHAR(100)	NOT NULL,
+	`ent_yr`	VARCHAR(4)	NOT NULL,
+	`sel_cd`	VARCHAR(10)	NOT NULL,
+	`nth_cd`	VARCHAR(10)	NOT NULL,
+	`stas_cors_div`	VARCHAR(10)	NOT NULL,
+	`dtl_cors_div`	VARCHAR(10)	NOT NULL,
+	`cors_cont`	CLOB	NOT NULL,
+	`time_brf`	VARCHAR(100)	NULL,
+	`cors_brf`	VARCHAR(100)	NULL,
+	`std_credit`	int	NOT NULL,
+	`id_subject`	VARCHAR(20)	NOT NULL
+);
+
+CREATE TABLE `CopyOfstudents_account` (
+	`id_univercityAccount`	VARCHAR(20)	NOT NULL,
+	`univercity_holder`	VARCHAR(10)	NOT NULL,
+	`id_univercity`	VARCHAR(20)	NOT NULL,
+	`univercity_bank`	VARCHAR(20)	NOT NULL,
+	`univercity_account`	VARCHAR(20)	NOT NULL
+);
+
+CREATE TABLE `CopyOfCopyOfstudents_account` (
+	`id_univercity`	VARCHAR(20)	NOT NULL,
+	`univercity_name`	VARCHAR(20)	NOT NULL,
+	`univercity_tel`	VARCHAR(20)	NOT NULL
+);
+
+CREATE TABLE `CopyOfsubject_price` (
+	`id_course_price`	INT	NOT NULL,
+	`course_name`	VARCHAR(20)	NOT NULL,
+	`course_price`	Long	NOT NULL,
+	`id_course`	VARCHAR(10)	NOT NULL
+);
+
+CREATE TABLE `admin` (
+	`id_admin`	VARCHAR(20)	NOT NULL,
+	`name`	VARCHAR(10)	NULL,
+	`birth`	CHAR(14)	NULL,
+	`tel`	VARCHAR(20)	NULL,
+	`address`	VARCHAR(100)	NULL,
+	`id_user`	VARCHAR(255)	NOT NULL,
+	`gender`	VARCHAR(255)	NULL
+);
+
+CREATE TABLE `lmt_cors_sts` (
+	`lect_yr`	VARCHAR(4)	NOT NULL,
+	`term_div`	VARCHAR(10)	NOT NULL,
+	`cors_no`	int	NOT NULL,
+	`cors_div`	VARCHAR(10)	NOT NULL,
+	`view_dtl_cors_div`	VARCHAR(10)	NOT NULL,
+	`view_aplcnt_div`	VARCHAR(10)	NOT NULL,
+	`term_nth`	int	NOT NULL,
+	`sch_yr`	VARCHAR(10)	NOT NULL,
+	`reg_cnt`	int	NOT NULL,
+	`curr_cnt`	int	NOT NULL,
+	`pass_cnt`	int	NOT NULL,
+	`non_pass_cnt`	int	NOT NULL
+);
+
+CREATE TABLE `lmt_cors_subj` (
+	`cors_div`	VARCHAR(10)	NOT NULL,
+	`cors_no`	int	NOT NULL,
+	`subj_seq`	int	NOT NULL,
+	`subj_div`	VARCHAR(10)	NOT NULL,
+	`subj_cd`	VARCHAR(10)	NOT NULL,
+	`lect_yr`	VARCHAR(4)	NOT NULL,
+	`term_div`	VARCHAR(10)	NOT NULL,
+	`sch_yr`	VARCHAR(10)	NOT NULL,
+	`term_nth`	int	NOT NULL,
+	`trainee_sel_div`	VARCHAR(10)	NOT NULL,
+	`gen_sel_div`	VARCHAR(10)	NOT NULL,
+	`sel_group`	VARCHAR(3)	NOT NULL,
+	`sel_group_cnt`	int	NOT NULL,
+	`week_nth`	VARCHAR(10)	NOT NULL,
+	`week_hr`	int	NOT NULL,
+	`ev_tp`	VARCHAR(10)	NOT NULL,
+	`credit`	int	NOT NULL,
+	`lmt_grade`	VARCHAR(10)	NOT NULL,
+	`max_cnt`	int	NOT NULL
+);
+
+CREATE TABLE `college` (
+	`id_college`	VARCHAR(20)	NOT NULL,
+	`college_name`	VARCHAR(20)	NOT NULL,
+	`college_type`	VARCHAR(20)	NOT NULL,
+	`college_code`	VARCHAR(20)	NOT NULL
+);
+
+CREATE TABLE `room` (
+	`id_room`	VARCHAR(20)	NOT NULL,
+	`room_name`	VARCHAR(20)	NOT NULL,
+	`room_capacity`	INT	NOT NULL,
+	`room_location`	VARCHAR(20)	NOT NULL
+);
+
+CREATE TABLE `course_details` (
+	`id_ course_details`	VARCHAR(20)	NOT NULL,
+	`id_student`	VARCHAR(20)	NOT NULL,
+	`id_lesson`	VARCHAR(20)	NOT NULL,
+	`grade`	VARCHAR(255)	NOT NULL
+);
+
+CREATE TABLE `CourseApply` (
+	`id_course_apply`	VARCHAR(20)	NOT NULL,
+	`course_name`	VARCHAR(20)	NOT NULL,
+	`couse_apply_date`	VARCHAR(20)	NOT NULL,
+	`couse_apply_status`	VARCHAR(20)	NOT NULL,
+	`id_lesson`	VARCHAR(20)	NOT NULL,
+	`id_student`	VARCHAR(20)	NOT NULL
+);
+
+CREATE TABLE `lmt_cors_schdl` (
+	`lect_yr`	VARCHAR(4)	NOT NULL,
+	`term_div`	VARCHAR(10)	NOT NULL,
+	`cors_div`	VARCHAR(10)	NOT NULL,
+	`schdl_seq`	int	NOT NULL,
+	`schdl_div`	VARCHAR(10)	NOT NULL,
+	`adpt_div`	VARCHAR(10)	NOT NULL,
+	`nth_cd`	VARCHAR(10)	NOT NULL,
+	`lect_no`	VARCHAR(10)	NOT NULL,
+	`sl_dt`	VARCHAR(12)	NOT NULL,
+	`end_dt`	VARCHAR(12)	NOT NULL,
+	`rmk`	VARCHAR(100)	NULL
+);
+
+CREATE TABLE `Untitled` (
+	`lect_yr`	VARCHAR(4)	NOT NULL,
+	`term_div`	VARCHAR(10)	NOT NULL,
+	`cors_div`	VARCHAR(10)	NOT NULL,
+	`week_seq`	int	NOT NULL,
+	`nth_cd`	VARCHAR(10)	NOT NULL,
+	`week_nth`	VARCHAR(10)	NOT NULL,
+	`st_dt`	VARCHAR(8)	NOT NULL,
+	`end_dt`	VARCHAR(8)	NOT NULL,
+	`pay_ym`	VARCHAR(6)	NOT NULL,
+	`sup_week_yn`	VARCHAR(1)	NOT NULL,
+	`rmk`	VARCHAR(100)	NULL
+);
+
+CREATE TABLE `credit` (
+	`id_credit`	int	NOT NULL,
+	`credit`	VARCHAR(20)	NOT NULL,
+	`credit_now`	VARCHAR(20)	NOT NULL,
+	`credit_total`	VARCHAR(20)	NOT NULL
+);
+
+CREATE TABLE `schedule` (
+	`id_schedule`	VARCHAR(20)	NOT NULL,
+	`schedule_year`	VARCHAR(255)	NULL,
+	`schedule_month`	VARCHAR(255)	NULL,
+	`schedule_date`	VARCHAR(255)	NULL,
+	`schedule_weekday`	VARCHAR(255)	NULL,
+	`schedule_ampm`	VARCHAR(255)	NULL,
+	`schedule_clock`	VARCHAR(255)	NULL,
+	`schedule_minute`	VARCHAR(255)	NULL,
+	`schedule_total`	VARCHAR(255)	NULL
+);
+
+CREATE TABLE `stu_sub_detail` (
+	`id_student`	VARCHAR(20)	NOT NULL,
+	`id_subject`	VARCHAR(255)	NULL,
+	`sub_day`	VARCHAR(255)	NULL,
+	`attendance_time`	VARCHAR(255)	NULL,
+	`absence_time`	VARCHAR(255)	NULL,
+	`lateness`	VARCHAR(255)	NULL,
+	`mid_exam`	VARCHAR(255)	NULL,
+	`final_exam`	VARCHAR(255)	NULL,
+	`converted_mark`	VARCHAR(255)	NULL,
+	`id_lesson`	VARCHAR(20)	NOT NULL
+);
+
+ALTER TABLE `Syllabus` ADD CONSTRAINT `PK_SYLLABUS` PRIMARY KEY (
+	`id_syllabus`
+);
+
+ALTER TABLE `completion` ADD CONSTRAINT `PK_COMPLETION` PRIMARY KEY (
+	`id_completion`
+);
+
+ALTER TABLE `lesson` ADD CONSTRAINT `PK_LESSON` PRIMARY KEY (
+	`id_lesson`
+);
+
+ALTER TABLE `students` ADD CONSTRAINT `PK_STUDENTS` PRIMARY KEY (
+	`id_student`
+);
+
+ALTER TABLE `Class Request` ADD CONSTRAINT `PK_CLASS REQUEST` PRIMARY KEY (
+	`id_class_request`
+);
+
+ALTER TABLE `subject` ADD CONSTRAINT `PK_SUBJECT` PRIMARY KEY (
+	`id_subject`
+);
+
+ALTER TABLE `code` ADD CONSTRAINT `PK_CODE` PRIMARY KEY (
+	`id_code`
+);
+
+ALTER TABLE `code_type` ADD CONSTRAINT `PK_CODE_TYPE` PRIMARY KEY (
+	`id_code_type`
+);
+
+ALTER TABLE `subject_price` ADD CONSTRAINT `PK_SUBJECT_PRICE` PRIMARY KEY (
+	`id_univercity_ registerprice`
+);
+
+ALTER TABLE `students_account` ADD CONSTRAINT `PK_STUDENTS_ACCOUNT` PRIMARY KEY (
+	`id_studentAccount`
+);
+
+ALTER TABLE `Professor` ADD CONSTRAINT `PK_PROFESSOR` PRIMARY KEY (
+	`id_prof`
+);
+
+ALTER TABLE `users` ADD CONSTRAINT `PK_USERS` PRIMARY KEY (
+	`id_user`
+);
+
+ALTER TABLE `lmt_cors_mst` ADD CONSTRAINT `PK_LMT_CORS_MST` PRIMARY KEY (
+	`id_cors`
+);
+
+ALTER TABLE `CopyOfstudents_account` ADD CONSTRAINT `PK_COPYOFSTUDENTS_ACCOUNT` PRIMARY KEY (
+	`id_univercityAccount`
+);
+
+ALTER TABLE `CopyOfCopyOfstudents_account` ADD CONSTRAINT `PK_COPYOFCOPYOFSTUDENTS_ACCOUNT` PRIMARY KEY (
+	`id_univercity`
+);
+
+ALTER TABLE `CopyOfsubject_price` ADD CONSTRAINT `PK_COPYOFSUBJECT_PRICE` PRIMARY KEY (
+	`id_course_price`
+);
+
+ALTER TABLE `admin` ADD CONSTRAINT `PK_ADMIN` PRIMARY KEY (
+	`id_admin`
+);
+
+ALTER TABLE `lmt_cors_sts` ADD CONSTRAINT `PK_LMT_CORS_STS` PRIMARY KEY (
+	`lect_yr`,
+	`term_div`,
+	`cors_no`,
+	`cors_div`
+);
+
+ALTER TABLE `lmt_cors_subj` ADD CONSTRAINT `PK_LMT_CORS_SUBJ` PRIMARY KEY (
+	`cors_div`,
+	`cors_no`,
+	`subj_seq`
+);
+
+ALTER TABLE `college` ADD CONSTRAINT `PK_COLLEGE` PRIMARY KEY (
+	`id_college`
+);
+
+ALTER TABLE `room` ADD CONSTRAINT `PK_ROOM` PRIMARY KEY (
+	`id_room`
+);
+
+ALTER TABLE `course_details` ADD CONSTRAINT `PK_COURSE_DETAILS` PRIMARY KEY (
+	`id_ course_details`
+);
+
+ALTER TABLE `CourseApply` ADD CONSTRAINT `PK_COURSEAPPLY` PRIMARY KEY (
+	`id_course_apply`
+);
+
+ALTER TABLE `lmt_cors_schdl` ADD CONSTRAINT `PK_LMT_CORS_SCHDL` PRIMARY KEY (
+	`lect_yr`,
+	`term_div`,
+	`cors_div`,
+	`schdl_seq`
+);
+
+ALTER TABLE `Untitled` ADD CONSTRAINT `PK_UNTITLED` PRIMARY KEY (
+	`lect_yr`,
+	`term_div`,
+	`cors_div`,
+	`week_seq`
+);
+
+ALTER TABLE `credit` ADD CONSTRAINT `PK_CREDIT` PRIMARY KEY (
+	`id_credit`
+);
+
+ALTER TABLE `schedule` ADD CONSTRAINT `PK_SCHEDULE` PRIMARY KEY (
+	`id_schedule`
+);
+
+ALTER TABLE `stu_sub_detail` ADD CONSTRAINT `PK_STU_SUB_DETAIL` PRIMARY KEY (
+	`id_student`
+);
+
+ALTER TABLE `stu_sub_detail` ADD CONSTRAINT `FK_students_TO_stu_sub_detail_1` FOREIGN KEY (
+	`id_student`
+)
+REFERENCES `students` (
+	`id_student`
+);
+
